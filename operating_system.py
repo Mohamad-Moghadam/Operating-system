@@ -4,16 +4,20 @@ from __future__ import annotations
 python_list = []
 
 
-
 class Folder:
-    def __init__(self, file : File = "", folder : Folder = ""):
-        self._file = file
+    def __init__(self, folder : Folder = ""):
         self._folder = folder
     
-    def set_contents(self):
+    def set_contents(self, file: File = "", folder: Folder = ""):
         self._list = []
-        self._list.append(self._file)
-        self._list.append(self.folder)
+        self._list.append(file)
+        self._list.append(folder)
+    
+    def mkdir(self, folder_name: File):
+        self._new_folder = folder_name
+
+    def cd():
+        pass
     
     def get_contents(self):
         return self._file, self._folder
@@ -23,8 +27,8 @@ class Folder:
 
     def mv(self, file, destination: Folder):
         if file in self._list:
-            self._list.remove(file)
-            destination
+            self.set_contents(file)
+            
 
 
 
