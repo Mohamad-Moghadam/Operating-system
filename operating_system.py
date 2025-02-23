@@ -7,9 +7,12 @@ class Folder:
     def __init__(self, file : File = "", folder : Folder = ""):
         self._file = file
         self._folder = folder
+    
+    def get_contents(self):
+        return self._file, self._folder
 
     def ls(self):
-        print(self.Folder())
+        self.get_contents()
 
 
 
