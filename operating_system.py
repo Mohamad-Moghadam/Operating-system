@@ -3,10 +3,14 @@
 from __future__ import annotations
 python_list = []
 
+
+
 class Folder:
     def __init__(self, file : File = "", folder : Folder = ""):
         self._file = file
         self._folder = folder
+    
+    def set_contents(self):
         self._list = []
         self._list.append(self._file)
         self._list.append(self.folder)
