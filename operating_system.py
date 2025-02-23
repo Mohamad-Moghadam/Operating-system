@@ -1,6 +1,7 @@
 #new file is here
 #this is the develop branch
 from __future__ import annotations
+py = endswith(".py")
 
 
 class Folder:
@@ -17,8 +18,8 @@ class Folder:
 
 
 class File:
-    def __init__(self,):
-        pass
+    def __init__(self, python : py):
+        
 
 
 
