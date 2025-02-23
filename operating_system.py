@@ -3,15 +3,17 @@
 
 
 class Folder:
-    def __init__(self, file : File, folder : Folder):
+    def __init__(self, file : File = "", folder : Folder = ""):
         self._file = file
-        self._folder = folder   
+        self._folder = folder
+
+    def ls(self):
+        print(self.Folder())
 
 
 
 class File:
     def __init__(self,):
         pass
-
 
 
