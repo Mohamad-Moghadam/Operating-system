@@ -8,19 +8,25 @@ class Folder:
     def __init__(self, folder : Folder = ""):
         self._folder = folder
     
-    def set_contents(self, file: File = "", folder: Folder = ""):
+    def set_contents(self, folder: Folder = "", file: File = ""):
         self._list = []
         self._list.append(file)
         self._list.append(folder)
     
-    def mkdir(self, folder_name: File):
+    def mkdir(self, folder_name: Folder):
         self._new_folder = folder_name
+        self._folder.set_contents(self._new_folder)
+    
 
-    def cd():
-        pass
+    def cd(self, destination):
+        self._destination = destination
+        if self._destination in self._list:
+            Current_directory(self._folder).current()
+        else:
+            raise FileNotFoundError()
     
     def get_contents(self):
-        return self._file, self._folder
+        return Current_directory(self._folder)
 
     def ls(self):
         print(self.get_contents())
