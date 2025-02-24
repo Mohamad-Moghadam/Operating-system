@@ -13,8 +13,9 @@ class Folder:
         self._list.append(file)
         self._list.append(folder)
     
-    def current_directory(self):
-        self._current_directory = current_directory
+    def current_directory(self, new = ""):
+        self._current_directory = ["root/"]
+        self._current_directory.append(new)
     
     def mkdir(self, folder_name: Folder):
         self._new_folder = folder_name
@@ -31,7 +32,7 @@ class Folder:
         self._folder.set_contents.remove(folder)
     
     def get_contents(self):
-        return self._folder.current_directory()
+        return f"{self._folder.current_directory()}"
 
     def ls(self):
         print(self.get_contents())
@@ -52,6 +53,10 @@ class File:
         if self._file.endswith(".py"):
             python_list.append(self._file)
 
+
+
+root = Folder("new_folder")
+print(root.ls())
 
 
 
