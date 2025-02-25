@@ -5,12 +5,13 @@ python_list = []
 
 
 class Folder:
-    def __init__(self, folder : Folder = ""):
-        self._folder = folder
-        self._current_directory = ["root/"]
+    def __init__(self, name: str, folder : Folder = None):
+        self.name = name
+        self._folder = folder if folder is not None else self
+        self._current_directory = ["~"]
+        self._list = []
     
     def set_contents(self, folder: Folder = "", file: File = ""):
-        self._list = []
         self._list.append(file)
         self._list.append(folder)
     
@@ -36,7 +37,7 @@ class Folder:
         return f"{self._folder.current_directory()}"
 
     def ls(self):
-        print(self.get_contents())
+        return self.get_contents()
 
     def mv(self, file, destination: Folder):
         if file in self._list:
@@ -55,8 +56,8 @@ class File:
             python_list.append(self._file)
 
 
-
-root = Folder("new_folder")
+sth = Folder("name")
+root = Folder("new_folder", sth)
 print(root.ls())
 
 
