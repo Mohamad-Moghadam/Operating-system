@@ -7,6 +7,7 @@ python_list = []
 class Folder:
     def __init__(self, folder : Folder = ""):
         self._folder = folder
+        self._current_directory = ["root/"]
     
     def set_contents(self, folder: Folder = "", file: File = ""):
         self._list = []
@@ -14,8 +15,8 @@ class Folder:
         self._list.append(folder)
     
     def current_directory(self, new = ""):
-        self._current_directory = ["root/"]
         self._current_directory.append(new)
+        return self._current_directory
     
     def mkdir(self, folder_name: Folder):
         self._new_folder = folder_name
