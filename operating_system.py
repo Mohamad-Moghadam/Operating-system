@@ -8,8 +8,26 @@ from typing import Optional
 class Tree(ABC):
     def __init__(self, previous_node: Optional[str], current: str, next_node: str):
         self._previous= previous_node
-        self._root= current
+        self._current= current
         self._next= next_node
+
+
+class Commands(Tree):
+    def __init__(self, previous_node: Optional[str], current: str, next_node: Optional[str]):
+        super().__init__(previous_node, current, next_node)
+        self._list = []
+
+    def mkdir(self, folder_name: Root):
+        self._path= self._current
+        self._new_folder= folder_name
+
+    def cd(self, destination):
+        self._destination = destination
+        if self._destination in self._list:
+            self._folder.current_directory()
+        else:
+            raise FileNotFoundError()
+        
 
 class Root(ABC):
     def __init__(self, name: str, folder : Root = None, file : File = None):
