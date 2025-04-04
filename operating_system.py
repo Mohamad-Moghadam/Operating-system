@@ -27,7 +27,9 @@ class Commands(Tree):
             self._folder.current_directory()
         else:
             raise FileNotFoundError()
-        
+
+    def rm(self, folder: str):
+        self._list= self._list.remove(folder)
 
 class Root(ABC):
     def __init__(self, name: str, folder : Root = None, file : File = None):
