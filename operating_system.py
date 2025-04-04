@@ -29,7 +29,11 @@ class Commands(Tree):
             raise FileNotFoundError()
 
     def rm(self, folder: str):
-        self._list= self._list.remove(folder)
+        self._list.remove(folder)
+
+    def ls(self):
+        ls= "/".join(self._list)
+        print(f"{ls}")
 
 class Root(ABC):
     def __init__(self, name: str, folder : Root = None, file : File = None):
