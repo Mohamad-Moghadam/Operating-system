@@ -40,7 +40,7 @@ class Commands(Tree):
         ls= "/".join(self._list)
         print(f"{ls}")
 
-class Root(ABC):
+"""class Root(ABC):
     def __init__(self, name: str, folder : Root = None, file : File = None):
         self._name = name
         self._folder = folder if folder is not None else self
@@ -101,9 +101,7 @@ class File:
 
 sth = Root("name")
 root = Root("new_folder", sth)
-print(root.ls())
-
-
+print(root.ls())"""
 
 
 
