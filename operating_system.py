@@ -6,7 +6,7 @@ from typing import Optional
 
 
 class Tree(ABC):
-    def __init__(self, previous_node: Optional[str], current: str, next_node: str):
+    def __init__(self, previous_node: Optional[str], current: str, next_node: Optional[str]):
         self._previous= previous_node
         self._current= current
         self._next= next_node
@@ -17,19 +17,24 @@ class Commands(Tree):
         super().__init__(previous_node, current, next_node)
         self._list = []
 
-    def mkdir(self, folder_name: Root):
+    def mkdir(self, folder_name: str):
+        self._list.append(folder_name)
         self._path= self._current
         self._new_folder= folder_name
 
     def cd(self, destination):
         self._destination = destination
         if self._destination in self._list:
-            self._folder.current_directory()
+            self._previous = self._current
+            self._current = destination
         else:
             raise FileNotFoundError()
 
     def rm(self, folder: str):
-        self._list.remove(folder)
+        if folder in self._list:
+            self._list.remove(folder)
+        else:
+            raise FileNotFoundError()
 
     def ls(self):
         ls= "/".join(self._list)
