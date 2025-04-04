@@ -2,11 +2,18 @@
 #this is the develop branch
 from __future__ import annotations
 from abc import ABC
+from typing import Optional
 
+
+class Tree(ABC):
+    def __init__(self, previous_node: Optional[str], current: str, next_node: str):
+        self._previous= previous_node
+        self._root= current
+        self._next= next_node
 
 class Root(ABC):
     def __init__(self, name: str, folder : Root = None, file : File = None):
-        self.name = name
+        self._name = name
         self._folder = folder if folder is not None else self
         self._first_directory = ["~"]
         self._list = []
