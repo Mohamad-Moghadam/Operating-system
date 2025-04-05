@@ -5,7 +5,7 @@ def menu():
     cmd = Commands(None, "root", None)
 
     while True:
-        command = input("What do you want to do?\n1. mkdir\n2. cd\n3. rm\n4. ls")
+        command = input("What do you want to do?\n1. mkdir\n2. cd\n3. rm\n4. ls\n5. exit\n")
         if command == "1":
             name= input(f"folder name: ")
             cmd.mkdir(name)
@@ -21,5 +21,8 @@ def menu():
         elif command == "4":
             cmd.ls()
 
+        elif command == "5":
+            print(f"see u later! ")
+            break
 menu()
 
